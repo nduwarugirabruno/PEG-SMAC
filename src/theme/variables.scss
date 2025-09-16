@@ -1,0 +1,34 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+//@use "bootstrap/sass:color";
+
+/** Ionic CSS Variables **/
+:root {
+    --app-background-color-transparent-light: #fcfcfcaa;
+    --app-background-color-transparent: #fcfcfcbb;
+    --app-background-color-transparent-bold: #fcfcfccc;
+    --app-background-color-transparent-bolder: #fcfcfcdd;
+    --app-background-color-transparent-bolder-max: #fcfcfcee;
+
+    --app-color-primary: #dc2626;
+    --app-color-primary-light: #ffc7bdff;//#FFC7BDFF;
+    --app-color-primary-lighter: #fff4f2;//#FFC7BDFF;
+    --app-color-primary-dark: #b91c1c;
+    //--app-color-primary-dark: #b91c1c;
+    --app-color-danger: var(--bs-secondary-rgb);
+}
+
+@media (prefers-color-scheme: dark) {
+    /*
+    * Dark Colors
+    * -------------------------------------------
+    */
+
+    body {
+        --app-background-color-transparent-light: #fcfcfcaa;
+        --app-background-color-transparent: #d9d9d9bf;
+        --app-background-color-transparent-bold: #fcfcfccc;
+        --app-background-color-transparent-bolder: #fcfcfcdd;
+        --app-background-color-transparent-bolder-max: #fcfcfcee;
+    }
+}

@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center align-items-center bg-light rounded-4 p-3"
+     [style]="message.body !== 'media' ? 'width: 400px;':'min-width: 400px;'">
+    <div class="d-flex flex-column p-4 gap-2 gap-sm-2 gap-lg-2" [class]="message.icon ? 'text-center':'text-start'">
+        @if (message.icon) {
+            <mat-icon class="text-success d-flex mx-auto" style="font-size: 4rem; height: 60px; width: 60px;">{{message.icon}}</mat-icon>
+        }
+        <h4 class="fw-bold">{{ message.title }}</h4>
+        @if (message.body !== "media") {
+            <p class="fs-6">{{ message.body }}</p>
+        } @else {
+            <div class="overflow-x-auto mb-3">
+                <table class="w-100 text-left">
+                    <thead>
+                    <tr class="bg-teal-600 text-white">
+                        <th class="p-3 fw-semibold" colspan="5">VERSEMENTS</th>
+                    </tr>
+                    <tr class="bg-secondary-subtle text-gray-600 uppercase">
+                        <th class="p-3 fw-semibold">Tranche</th>
+                        <th class="p-3 fw-semibold text-end">De</th>
+                        <th class="p-3 fw-semibold text-end">À</th>
+                        <th class="p-3 fw-semibold text-center">Abondement</th>
+                        <th class="p-3 fw-semibold text-end">Montant de l'abondement</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 font-medium">Tranche 1</td>
+                        <td class="p-3 text-end">-€</td>
+                        <td class="p-3 text-end">360 €</td>
+                        <td class="p-3 text-center">200 %</td>
+                        <td class="p-3 text-end fw-semibold">720 €</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-medium">Tranche 2</td>
+                        <td class="p-3 text-end">360 €</td>
+                        <td class="p-3 text-end">720 €</td>
+                        <td class="p-3 text-center">100 %</td>
+                        <td class="p-3 text-end fw-semibold">360 €</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-medium">Tranche 3</td>
+                        <td class="p-3 text-end">720 €</td>
+                        <td class="p-3 text-end">1800 €</td>
+                        <td class="p-3 text-center">25 %</td>
+                        <td class="p-3 text-end fw-semibold">270 €</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr class="bg-teal-600 text-white fw-bold">
+                        <td class="p-3" colspan="4">Abondement Annuel maximal</td>
+                        <td class="p-3 text-end">1350 €</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+        <button class="btn mx-auto" (click)="closeModal(true)"
+                type="button">{{ message.btnMessage ?? "J'ai compris" }}
+        </button>
+    </div>
+</div>

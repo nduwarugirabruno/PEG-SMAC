@@ -1,0 +1,57 @@
+<div class="form-container h-auto">
+    <div class="form-header d-flex justify-content-between gap-3">
+        <h5 class="m-0 fw-bold">Connexion sécurisé PEG SMAC</h5>
+        <i class="bi bi-circle-fill my-auto"></i>
+    </div>
+    <form (submit)="submit()" [formGroup]="form">
+        <div class="d-flex flex-row" style="border-radius: 45%;">
+            <div class="form-row" style="width: 100%;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nom</mat-label>
+                    <input formControlName="nom" placeholder="Votre nom" type="text" matNativeControl/>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row">
+            <div class="form-row" style="width: 100%;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Prénom</mat-label>
+                    <input formControlName="prenom" placeholder="Votre prénom" type="text" matNativeControl/>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row">
+            <div class="form-row" style="width: 100%;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Matricule</mat-label>
+                    <input formControlName="matricule" placeholder="Ex: 012345" type="text" matNativeControl/>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row">
+            <div class="form-row" style="width: 100%;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Mot de passe</mat-label>
+                    <input formControlName="password" placeholder="*************" type="password" matNativeControl/>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="submit-row d-flex justify-content-center"> <!-- gap-3 gap-sm-2 gap-lg-4-->
+            <button class="btn my-0"
+                    type="submit">Se connecter
+            </button>
+        </div>
+
+        <div class="form-footer d-flex justify-content-around" style="color: var(--app-color-primary);">
+            <span class="link" (click)="openModal(0)">Mot de passe oublié ?</span>
+            <span>|</span>
+            <span class="link" (click)="openModal(1)">Problème de connexion ?</span>
+        </div>
+    </form>
+</div>
+<div class="form-footer"></div>

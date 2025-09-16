@@ -1,0 +1,198 @@
+/* Cacher les flèches de l'input number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.main-body {
+    max-width: max(calc(100vw / 2.25), 500px);
+    @media screen and (max-width: 500px) {
+        max-width: calc(100% - 2rem);
+    }
+    /*
+
+        @media screen and (min-width: 700px) {
+            max-width: calc(100% - 5rem);
+        }
+
+        @media screen and (min-width: 800px) {
+            max-width: calc(100vw / 1.25);
+        }
+        @media screen and (min-width: 900px) {
+            max-width: calc(100vw / 1.50);
+        }
+        @media screen and (min-width: 1000px) {
+            max-width: calc(100vw / 1.75);
+        }
+        @media screen and (min-width: 1200px) {
+            max-width: calc(100vw / 2);
+        }
+        @media screen and (min-width: 1400px) {
+            max-width: calc(100vw / 2);
+        }
+        @media screen and (min-width: 1600px) {
+            max-width: calc(100vw / 2)
+        }
+    */
+}
+
+.plan-card {
+    //--plan-card-width: calc(50% - 1rem);
+    //--plan-card-height: 100%;
+    width: var(--plan-card-width);
+    //height: var(--plan-card-height);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+
+    transition: all 0.3s ease-in-out;
+
+    @media screen and (max-width: 700px) {
+        --plan-card-width: 100%;
+    }
+
+    .plan-flexible, .plan-prudent {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+
+        width: calc(50% - 1rem);
+        height: 100px;
+
+        transition: all 0.3s ease-in-out;
+
+        &.active-plan {
+            border: 5px solid var(--app-color-primary);
+            background-color: var(--app-color-primary-lighter);
+            transition: all 0.3s ease-in-out;
+        }
+
+        input[type="radio"] {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.5rem;
+            //accent-color: #ff4d4f;
+            cursor: pointer;
+        }
+
+        .plan-card-span {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-left: 0.5rem;
+
+            .plan-card-span-child1 {
+                font-size: 1rem;
+                font-weight: bolder;
+            }
+
+            .plan-card-span-child2 {
+                color: var(--app-color-primary);
+                //opacity: 0.75;
+            }
+        }
+    }
+
+    .relative {
+        position: relative;
+
+        input {
+            margin: 0.5rem 0;
+            width: 100%;
+            height: 3rem;
+            padding-right: 2rem;
+            border-radius: 7.5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            text-align: right;
+
+            &:focus {
+                //outline: none;
+                outline: 3px solid var(--app-color-primary);
+                border: 1px solid black;
+            }
+        }
+
+        span.plan-currency {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            font-size: 1.25rem;
+            padding: 0 0.75rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    #abondement-prudent {
+        color: var(--app-color-primary);
+    }
+
+    .plafond {
+        display: flex;
+        align-items: center;
+        gap: 1.0rem;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        //border: 1px solid #ccc;
+        border-radius: 10px;
+        //height: 100px;
+        //width: 100%;
+        //d-flex align-items-center gap-3
+
+        label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1rem;
+
+            input {
+                margin-right: 0.5rem;
+                height: 1.25rem;
+                width: 1.25rem;
+                //accent-color: #ff4d4f;
+            }
+        }
+    }
+
+    .prelevements-amount {
+        height: auto;
+
+        .novembre-prudent, .decembre-prudent {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .select-plan-btn {
+        //padding: 0.5rem 1.5rem;
+        width: 100%;
+        height: 50px;
+        background-color: var(--app-color-primary);
+        color: white;
+        font-weight: bold;
+
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: var(--app-color-primary-dark);
+            transform: scaleX(1.0125) scaleY(1.0125) scaleZ(1.0125);
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+            transition: all 0.3s ease-in-out;
+        }
+
+    }
+}
