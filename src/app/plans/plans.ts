@@ -19,10 +19,10 @@ import {Role} from '../shared/app.enums';
 })
 export class PlansComponent implements OnInit {
 
-    protected readonly title: string = 'PLAN D’ÉPARGNE SALARIALE - GROUPE SMAC';
     form!: FormGroup;
     abondementOutput!: number;
     c_user!: User;
+    protected readonly title: string = 'PLAN D’ÉPARGNE SALARIALE - GROUPE SMAC';
     private fb = inject(FormBuilder);
 
     private cd = inject(ChangeDetectorRef);
@@ -79,7 +79,13 @@ export class PlansComponent implements OnInit {
             novemberAmount: ['', [Validators.required]],
             decemberAmount: ['', [Validators.required]]
         });
-        this.c_user = this.param.user ?? {nom: 'MAHRI', prenom: 'Valentin', matricule: '123456789', password: '123456789', role: Role.ADMIN};
+        this.c_user = this.param.user ?? {
+            nom: 'MAHRI',
+            prenom: 'Valentin',
+            matricule: '123456789',
+            password: '123456789',
+            role: Role.ADMIN
+        };
         // this.getUserDetails();
 
         this.abondementOutput = 0;

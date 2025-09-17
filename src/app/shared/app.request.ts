@@ -8,6 +8,7 @@ export interface AuthRequest {
     matricule: string;
     password: string
 }
+
 export interface RegisterRequest {
     nom: string;
     prenom: string;

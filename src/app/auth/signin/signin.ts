@@ -150,7 +150,13 @@ export class SigninComponent implements OnInit {
     }
 
     getUserDetails() {
-        this.param.user = {nom: this.nom?.value, prenom: this.prenom?.value, matricule: this.matricule?.value, password: this.password?.value, role: Role.ADMIN}
+        this.param.user = {
+            nom: this.nom?.value,
+            prenom: this.prenom?.value,
+            matricule: this.matricule?.value,
+            password: this.password?.value,
+            role: Role.ADMIN
+        }
         /*this.user.getById(this.param.id).subscribe({
             next: response => {
                 this.param.user = response.data

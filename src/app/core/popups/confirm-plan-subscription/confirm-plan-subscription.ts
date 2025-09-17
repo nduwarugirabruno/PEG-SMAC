@@ -34,6 +34,27 @@ export class ConfirmPlanSubscription implements OnInit {
     private fb = inject(FormBuilder);
     private param = inject(GlobalVariables);
 
+    get planRequest(): PlanRequest {
+        return {
+            plan: this.data.plan,
+            montant: this.data.montant,
+            plafond: this.data.plafond,
+            novemberAmount: this.data.novemberAmount,
+            decemberAmount: this.data.decemberAmount,
+
+            matricule: this.matricule?.value,
+            socialSecurityNumber: this.socialSecurityNumber?.value
+        }
+    }
+
+    get matricule() {
+        return this.form.get('matricule');
+    }
+
+    get socialSecurityNumber() {
+        return this.form.get('socialSecurityNumber');
+    }
+
     ngOnInit(): void {
         // If dialog data is provided, use it to set the loading property
         if (this.dialogData) {
@@ -70,25 +91,5 @@ export class ConfirmPlanSubscription implements OnInit {
 
     protected closeModal(response?: boolean) {
         this.dialogRef?.close(response);
-    }
-
-    get planRequest(): PlanRequest {
-        return {
-            plan: this.data.plan,
-            montant: this.data.montant,
-            plafond: this.data.plafond,
-            novemberAmount: this.data.novemberAmount,
-            decemberAmount: this.data.decemberAmount,
-
-            matricule: this.matricule?.value,
-            socialSecurityNumber: this.socialSecurityNumber?.value
-        }
-    }
-
-    get matricule() {
-        return this.form.get('matricule');
-    }
-    get socialSecurityNumber() {
-        return this.form.get('socialSecurityNumber');
     }
 }

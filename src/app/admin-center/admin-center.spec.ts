@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminCenter } from './admin-center';
+import {AdminCenterComponent} from './admin-center';
 
-describe('AdminCenter', () => {
-  let component: AdminCenter;
-  let fixture: ComponentFixture<AdminCenter>;
+describe('AdminCenterComponent', () => {
+    let component: AdminCenterComponent;
+    let fixture: ComponentFixture<AdminCenterComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AdminCenter]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [AdminCenterComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(AdminCenter);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(AdminCenterComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

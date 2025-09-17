@@ -7,7 +7,7 @@ import {Responses} from '../../shared/app.responses';
 import {UUID} from 'node:crypto';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UserService {
     private http = inject(HttpClient);
