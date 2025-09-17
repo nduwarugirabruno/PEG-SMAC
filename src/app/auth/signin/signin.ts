@@ -4,6 +4,10 @@ import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {PopupService} from '../../services/popup/popup.service';
 import {MessagePopup} from '../../core/popups/message-popup/message-popup';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth/auth.service';
+import {GlobalVariables} from '../../shared/global.variables';
+import {Role} from '../../shared/app.enums';
+import {UserService} from '../../services/user/user.service';
 
 @Component({
     selector: 'app-signin-component',
@@ -37,7 +41,9 @@ export class SigninComponent implements OnInit {
     private fb = inject(FormBuilder);
     private cd = inject(ChangeDetectorRef);
     private popup = inject(PopupService);
-    // private auth = inject(AuthService);
+    private param = inject(GlobalVariables);
+    private user = inject(UserService);
+    private auth = inject(AuthService);
     private router = inject(Router);
 
     get nom() {
@@ -88,6 +94,22 @@ export class SigninComponent implements OnInit {
             this.openModal(2);
         } else {
             console.log(this.form.value);
+            this.auth.authenticate(this.form.value).subscribe({
+                next: response => {
+                    this.param.token = response.token
+                    this.getUserDetails()
+                },
+                error: err => {
+                    console.error(err);
+                    if (err.status === 404) {
+                        this.notFound = true;
+                        this.userNotFoundValidator(this.form);
+                    }
+                },
+                complete: () => {
+                    console.info('The authentication was completed');
+                }
+            });
             this.router.navigateByUrl('plans').then(r => console.log(r))
         }
     }
@@ -127,4 +149,15 @@ export class SigninComponent implements OnInit {
         })
     }
 
+    getUserDetails() {
+        this.param.user = {nom: this.nom?.value, prenom: this.prenom?.value, matricule: this.matricule?.value, password: this.password?.value, role: Role.ADMIN}
+        /*this.user.getById(this.param.id).subscribe({
+            next: response => {
+                this.param.user = response.data
+                this.cd.detectChanges();
+            },
+            error: err => console.error(err),
+            complete: () => console.info('The user was retrieved')
+        });*/
+    }
 }

@@ -4,6 +4,9 @@ import {MessagePopup} from '../core/popups/message-popup/message-popup';
 import {PopupService} from '../services/popup/popup.service';
 import {CurrencyPipe} from '@angular/common';
 import {ConfirmPlanSubscription} from '../core/popups/confirm-plan-subscription/confirm-plan-subscription';
+import {GlobalVariables} from '../shared/global.variables';
+import {User} from '../shared/app.models';
+import {Role} from '../shared/app.enums';
 
 @Component({
     selector: 'app-plans',
@@ -16,12 +19,14 @@ import {ConfirmPlanSubscription} from '../core/popups/confirm-plan-subscription/
 })
 export class PlansComponent implements OnInit {
 
+    protected readonly title: string = 'PLAN D’ÉPARGNE SALARIALE - GROUPE SMAC';
     form!: FormGroup;
     abondementOutput!: number;
-    // invalidPrelevement!: boolean;
+    c_user!: User;
     private fb = inject(FormBuilder);
 
     private cd = inject(ChangeDetectorRef);
+    private param = inject(GlobalVariables);
     private popup = inject(PopupService);
 
     private dialogContents = [
@@ -68,12 +73,14 @@ export class PlansComponent implements OnInit {
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            plan: ['', [Validators.required]],
+            plan: ['prudent', [Validators.required]],
             montant: ['', [Validators.required]],
             plafond: ['', [Validators.required]],
             novemberAmount: ['', [Validators.required]],
             decemberAmount: ['', [Validators.required]]
         });
+        this.c_user = this.param.user ?? {nom: 'MAHRI', prenom: 'Valentin', matricule: '123456789', password: '123456789', role: Role.ADMIN};
+        // this.getUserDetails();
 
         this.abondementOutput = 0;
 
@@ -114,6 +121,7 @@ export class PlansComponent implements OnInit {
         const tranche2 = Math.min(Math.max(versement - 360, 0), 360); // 100 % = x1
         const tranche3 = Math.min(Math.max(versement - 720, 0), 1080) * 0.25; // 25 %
         const total = tranche1 + tranche2 + tranche3;
+        console.log(this.form.value);
         return Math.min(total, 1350); // plafond annuel
     }
 
@@ -137,4 +145,5 @@ export class PlansComponent implements OnInit {
             }
         })
     }
+
 }
