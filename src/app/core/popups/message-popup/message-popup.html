@@ -1,8 +1,10 @@
-<div class="d-flex justify-content-center align-items-center bg-light rounded-4 p-3"
-     [style]="message.body !== 'media' ? 'width: 400px;':'min-width: 400px;'">
-    <div class="d-flex flex-column p-4 gap-2 gap-sm-2 gap-lg-2" [class]="message.icon ? 'text-center':'text-start'">
+<div [style]="message.body !== 'media' ? 'width: 400px;':'min-width: 400px;'"
+     class="d-flex justify-content-center align-items-center bg-light rounded-4 p-3">
+    <div [class]="message.icon ? 'text-center':'text-start'" class="d-flex flex-column p-4 gap-2 gap-sm-2 gap-lg-2">
         @if (message.icon) {
-            <mat-icon class="text-success d-flex mx-auto" style="font-size: 4rem; height: 60px; width: 60px;">{{message.icon}}</mat-icon>
+            <mat-icon class="text-success d-flex mx-auto"
+                      style="font-size: 4rem; height: 60px; width: 60px;">{{ message.icon }}
+            </mat-icon>
         }
         <h4 class="fw-bold">{{ message.title }}</h4>
         @if (message.body !== "media") {
@@ -54,7 +56,7 @@
                 </table>
             </div>
         }
-        <button class="btn mx-auto" (click)="closeModal(true)"
+        <button (click)="closeModal(true)" class="btn mx-auto"
                 type="button">{{ message.btnMessage ?? "J'ai compris" }}
         </button>
     </div>

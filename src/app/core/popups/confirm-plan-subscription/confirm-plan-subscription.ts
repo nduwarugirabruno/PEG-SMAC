@@ -5,15 +5,15 @@ import {MatFormField} from '@angular/material/form-field';
 import {MatInput, MatLabel} from '@angular/material/input';
 
 @Component({
-  selector: 'app-confirm-plan-subscription',
+    selector: 'app-confirm-plan-subscription',
     imports: [
         ReactiveFormsModule,
         MatFormField,
         MatInput,
         MatLabel
     ],
-  templateUrl: './confirm-plan-subscription.html',
-  styleUrl: './confirm-plan-subscription.scss'
+    templateUrl: './confirm-plan-subscription.html',
+    styleUrl: './confirm-plan-subscription.scss'
 })
 export class ConfirmPlanSubscription implements OnInit {
 
@@ -24,10 +24,10 @@ export class ConfirmPlanSubscription implements OnInit {
         novemberAmount: number,
         decemberAmount: number
     };
+    form!: FormGroup;
     private dialogRef = inject(DialogRef, {optional: true});
     private dialogData = inject(DIALOG_DATA, {optional: true});
     private fb = inject(FormBuilder);
-    form!: FormGroup;
 
     ngOnInit(): void {
         // If dialog data is provided, use it to set the loading property

@@ -2,12 +2,12 @@
 <div class="d-flex justify-content-center align-items-center bg-white rounded-4 p-0 m-0" style="width: 500px;">
     <div class="form-container">
         <h4 class="fw-bold text-gray-900 mb-6">Confirmer votre souscription</h4>
-        <form [formGroup]="form" (submit)="submit()" class="m-0">
+        <form (submit)="submit()" [formGroup]="form" class="m-0">
             <div class="d-flex flex-row">
                 <div class="form-row" style="width: 100%;">
                     <mat-form-field appearance="outline">
                         <mat-label>Matricule</mat-label>
-                        <input formControlName="matricule" placeholder="Ex: 012345" type="text" matNativeControl/>
+                        <input formControlName="matricule" matNativeControl placeholder="Ex: 012345" type="text"/>
                     </mat-form-field>
                 </div>
             </div>
@@ -16,8 +16,8 @@
                 <div class="form-row" style="width: 100%;">
                     <mat-form-field appearance="outline">
                         <mat-label>Numéro de sécurité sociale</mat-label>
-                        <input formControlName="socialSecurityNumber" placeholder="1 85 01 75 123 456" type="text"
-                               matNativeControl/>
+                        <input formControlName="socialSecurityNumber" matNativeControl placeholder="1 85 01 75 123 456"
+                               type="text"/>
                     </mat-form-field>
                 </div>
             </div>
@@ -26,8 +26,8 @@
                     obligatoires(*).</p>
             }
             <div class="d-flex justify-content-end gap-3">
-                <button id="cancel-btn" (click)="closeModal(false)" class="btn btn-outline-secondary">Annuler</button>
-                <button type="submit" id="confirm-btn" class="btn">Confirmer</button>
+                <button (click)="closeModal(false)" class="btn btn-outline-secondary" id="cancel-btn">Annuler</button>
+                <button class="btn" id="confirm-btn" type="submit">Confirmer</button>
             </div>
         </form>
     </div>

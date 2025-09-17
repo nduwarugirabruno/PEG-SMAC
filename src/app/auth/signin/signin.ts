@@ -40,6 +40,22 @@ export class SigninComponent implements OnInit {
     // private auth = inject(AuthService);
     private router = inject(Router);
 
+    get nom() {
+        return this.form.get('nom');
+    }
+
+    get prenom() {
+        return this.form.get('prenom');
+    }
+
+    get matricule() {
+        return this.form.get('matricule');
+    }
+
+    get password() {
+        return this.form.get('password');
+    }
+
     ngOnInit(): void {
         this.form = this.fb.group({
             nom: ['', [Validators.required]],
@@ -70,8 +86,7 @@ export class SigninComponent implements OnInit {
     submit() {
         if (this.form.invalid) {
             this.openModal(2);
-        }
-        else {
+        } else {
             console.log(this.form.value);
             this.router.navigateByUrl('plans').then(r => console.log(r))
         }
@@ -110,22 +125,6 @@ export class SigninComponent implements OnInit {
                 console.info('The dialog was closed')
             }
         })
-    }
-
-    get nom() {
-        return this.form.get('nom');
-    }
-
-    get prenom() {
-        return this.form.get('prenom');
-    }
-
-    get matricule() {
-        return this.form.get('matricule');
-    }
-
-    get password() {
-        return this.form.get('password');
     }
 
 }

@@ -42,6 +42,30 @@ export class PlansComponent implements OnInit {
         }
     ]
 
+    get plan() {
+        return this.form.get('plan');
+    }
+
+    get montant() {
+        return this.form.get('montant');
+    }
+
+    get plafond() {
+        return this.form.get('plafond');
+    }
+
+    get novemberAmount() {
+        return this.form.get('novemberAmount');
+    }
+
+    get decemberAmount() {
+        return this.form.get('decemberAmount');
+    }
+
+    get invalidPrelevement() {
+        return this.montant?.value !== this.novemberAmount?.value + this.decemberAmount?.value;
+    }
+
     ngOnInit(): void {
         this.form = this.fb.group({
             plan: ['', [Validators.required]],
@@ -112,29 +136,5 @@ export class PlansComponent implements OnInit {
                 console.info('The dialog was closed')
             }
         })
-    }
-
-    get plan() {
-        return this.form.get('plan');
-    }
-
-    get montant() {
-        return this.form.get('montant');
-    }
-
-    get plafond() {
-        return this.form.get('plafond');
-    }
-
-    get novemberAmount() {
-        return this.form.get('novemberAmount');
-    }
-
-    get decemberAmount() {
-        return this.form.get('decemberAmount');
-    }
-
-    get invalidPrelevement() {
-        return this.montant?.value !== this.novemberAmount?.value + this.decemberAmount?.value;
     }
 }

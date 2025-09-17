@@ -8,7 +8,7 @@
             <div class="form-row" style="width: 100%;">
                 <mat-form-field appearance="outline">
                     <mat-label>Nom</mat-label>
-                    <input formControlName="nom" placeholder="Votre nom" type="text" matNativeControl/>
+                    <input formControlName="nom" matNativeControl placeholder="Votre nom" type="text"/>
                 </mat-form-field>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="form-row" style="width: 100%;">
                 <mat-form-field appearance="outline">
                     <mat-label>Prénom</mat-label>
-                    <input formControlName="prenom" placeholder="Votre prénom" type="text" matNativeControl/>
+                    <input formControlName="prenom" matNativeControl placeholder="Votre prénom" type="text"/>
                 </mat-form-field>
             </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="form-row" style="width: 100%;">
                 <mat-form-field appearance="outline">
                     <mat-label>Matricule</mat-label>
-                    <input formControlName="matricule" placeholder="Ex: 012345" type="text" matNativeControl/>
+                    <input formControlName="matricule" matNativeControl placeholder="Ex: 012345" type="text"/>
                 </mat-form-field>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="form-row" style="width: 100%;">
                 <mat-form-field appearance="outline">
                     <mat-label>Mot de passe</mat-label>
-                    <input formControlName="password" placeholder="*************" type="password" matNativeControl/>
+                    <input formControlName="password" matNativeControl placeholder="*************" type="password"/>
                 </mat-form-field>
             </div>
         </div>
@@ -48,9 +48,9 @@
         </div>
 
         <div class="form-footer d-flex justify-content-around" style="color: var(--app-color-primary);">
-            <span class="link" (click)="openModal(0)">Mot de passe oublié ?</span>
+            <span (click)="openModal(0)" class="link">Mot de passe oublié ?</span>
             <span>|</span>
-            <span class="link" (click)="openModal(1)">Problème de connexion ?</span>
+            <span (click)="openModal(1)" class="link">Problème de connexion ?</span>
         </div>
     </form>
 </div>

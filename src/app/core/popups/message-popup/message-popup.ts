@@ -12,7 +12,7 @@ import {MatIcon} from '@angular/material/icon';
 })
 export class MessagePopup implements OnInit {
 
-    @Input() message!: { icon?: string, title: string, body: string, btnMessage?: string};
+    @Input() message!: { icon?: string, title: string, body: string, btnMessage?: string };
     private dialogRef = inject(DialogRef, {optional: true});
     private dialogData = inject(DIALOG_DATA, {optional: true});
 
